@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Medicine</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar-custom {
+            background-color: #e3f2fd; /* Light blue background for the navbar */
+        }
+        .btn-success {
+            background-color: green; /* Ensures the submit button is green */
+        }
+        .form-group label {
+            color: #007bff; /* Blue color for labels to match the example */
+        }
+        .container h2 {
+            color: #007bff; /* Blue color for the header */
+        }
+        .marquee {
+            font-size: 18px;
+            color: red; /* Red color for attention */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">GAURAV HOSPITALS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/view-medicine">Back</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <marquee class="marquee">Important: Please double-check the medicine stock regularly!</marquee>
+        <h2 class="text-center">Create MEDICINE</h2>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="drugName">Drug Name</label>
+                <input type="text" id="drugName" class="form-control" name="drugName" placeholder="Enter DRUG Name" [(ngModel)]="medicine.drugName" autocomplete="on"/>
+            </div>
+
+            <div class="form-group">
+                <label for="stock">STOCKS</label>
+                <input type="text" id="stock" class="form-control" name="stock" placeholder="Enter Present Stock" [(ngModel)]="medicine.stock" autocomplete="on"/>
+            </div>
+
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

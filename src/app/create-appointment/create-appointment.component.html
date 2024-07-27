@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Appointment - Gaurav Hospitals</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+        }
+        .navbar-custom {
+            background-color: #004a99; /* Blue shade for professionalism */
+            padding: 10px 0;
+        }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: #ffffff;
+        }
+        .navbar-custom .nav-link:hover {
+            background-color: #002f6c;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            padding: 20px;
+            margin-top: 30px;
+        }
+        h2.text-center {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            color: #0056b3;
+            font-weight: bold;
+        }
+        .form-control {
+            border-radius: 5px;
+            border: 2px solid #007bff;
+        }
+        .btn-success {
+            background-color: #0056b3;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .btn-success:hover {
+            background-color: #004a99;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">GAURAV HOSPITALS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/appointmentlist">Back</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="text-center">Create Appointment</h2>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" class="form-control" name="name" placeholder="Enter your Name" [(ngModel)]="appointment.name" autocomplete="name"/>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="text" id="age" class="form-control" name="age" placeholder="Enter your Age" [(ngModel)]="appointment.age" autocomplete="age"/>
+            </div>
+
+            <div class="form-group">
+                <label for="symptoms">Symptoms</label>
+                <input type="text" id="symptoms" class="form-control" name="symptoms" placeholder="Enter your symptoms" [(ngModel)]="appointment.symptoms" autocomplete="off"/>
+            </div>
+
+            <div class="form-group">
+                <label for="number">Contact Number</label>
+                <input type="text" id="number" class="form-control" name="number" placeholder="Enter your Contact Number" [(ngModel)]="appointment.number" autocomplete="tel"/>
+            </div>
+
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

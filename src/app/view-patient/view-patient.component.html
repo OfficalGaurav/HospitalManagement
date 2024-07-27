@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gaurav Hospital</title>
+    <style>
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .marquee-container {
+            background-color: #009688;
+            color: white;
+            padding: 10px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="marquee-container">
+        <marquee>Welcome to Gaurav Hospital</marquee>
+    </div>
+
+    <div class="container">
+        <table>
+            <tr>
+                <th>ID</th>
+                <td><b>{{patient.id}}</b></td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td><b>{{patient.name}}</b></td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td><b>{{patient.age}}</b></td>
+            </tr>
+            <tr>
+                <th>Blood Type</th>
+                <td><b>{{patient.blood}}</b></td>
+            </tr>
+            <tr>
+                <th>Dose</th>
+                <td><b>{{patient.dose}}</b></td>
+            </tr>
+            <tr>
+                <th>Fees</th>
+                <td><b>{{patient.fees}}</b></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

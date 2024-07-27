@@ -1,0 +1,17 @@
+<div class="container">
+    <marquee class="marquee">Important: Please double-check the medicine stock regularly!</marquee>
+    <h2 class="text-center">Update MEDICINE</h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="drugName">Drug Name</label>
+            <input type="text" id="drugName" class="form-control" name="drugName" placeholder="Enter DRUG Name" [(ngModel)]="medicine.drugName" autocomplete="on"/>
+        </div>
+
+        <div class="form-group">
+            <label for="stock">STOCKS</label>
+            <input type="text" id="stock" class="form-control" name="stock" placeholder="Enter Present Stock" [(ngModel)]="medicine.stock" autocomplete="on"/>
+        </div>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
