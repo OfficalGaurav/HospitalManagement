@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Create Doctor</h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="form-control" [(ngModel)]="doctor.name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="specialization">Specialization</label>
+            <select id="specialization" class="form-control" [(ngModel)]="selectedSpecialization" name="specialization" (change)="onSpecializationChange($event)" required>
+                <option value="" disabled selected>Select Specialization</option>
+                <option *ngFor="let spec of specializations" [value]="spec">{{ spec }}</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="form-group" *ngIf="showOtherSpecialization">
+            <label for="otherSpecialization">Enter Specialization</label>
+            <input type="text" id="otherSpecialization" class="form-control" [(ngModel)]="doctor.specialization" name="otherSpecialization" required>
+        </div>
+        <div class="form-group">
+            <label for="contactNumber">Contact Number</label>
+            <input type="text" id="contactNumber" class="form-control" [(ngModel)]="doctor.contactNumber" name="contactNumber" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" [(ngModel)]="doctor.email" name="email" required>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>

@@ -7,50 +7,60 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9; /* Light grey background for a subtle look */
+            background-color: #f4f4f9;
         }
 
-        .navbar-custom {
-            background-color: #004a99; /* Dark blue background for the navbar */
-        }
-
-        .navbar-custom .navbar-brand,
-        .navbar-custom .nav-link {
-            color: #ffffff; /* White text for contrast */
-        }
-
-        .navbar-custom .nav-link:hover {
-            background-color: #002f6c; /* Darker blue on hover for interactive feel */
-        }
-
-        .container h2 {
-            color: #333;
-            margin-top: 20px;
+        .header {
+            background-color: #004a99;
+            color: #ffffff;
+            padding: 10px 20px;
             text-align: center;
+            font-size: 24px;
+            font-weight: bold;
         }
 
-        .marquee-custom {
-            color: #555; /* Darker text for readability */
-            font-size: x-large;
-            padding: 10px;
-            background-color: #e9ecef; /* Light gray background for the marquee */
-            border-radius: 10px;
-            margin: 20px 0;
+        .subheader {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .actions {
+            margin: 20px 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .back-button,
+        .add-button {
+            background-color: #004a99;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-button:hover,
+        .add-button:hover {
+            background-color: #002f6c;
         }
 
         .table-custom {
-            background-color: #fff; /* White background for the table */
-            border-radius: 10px; /* Rounded corners for the table */
-            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px 10px;
         }
 
         .table-header {
-            background-color: #007bff; /* Consistent blue header */
+            background-color: #007bff;
             color: white;
         }
 
         .table-custom tbody tr:hover {
-            background-color: #f2f2f2; /* Hover effect for each row */
+            background-color: #d5cc18;
         }
 
         .footer {
@@ -65,41 +75,43 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <a class="navbar-brand" href="#">GAURAV     HOSPITALS</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/create-medicine"> ADD MEDCININE</a>
-                    <a class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/docdash">Back</a>             
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div class="header">
+        GAURAV HOSPITALS
+    </div>
 
-    
+    <div class="subheader">
+        VIEW MEDICINE DEPARTMENT
+    </div>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>DRUG NAME</th>
-            <th>STOCK</th>
-            <thead>Action</thead>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let medicine of medicines">
-            <td>{{medicine.id}}</td>
-            <td>{{medicine.drugName}}</td>
-            <td>{{medicine.stock}}</td>
-            <td>
-                <button type="submit" class="btn btn-info" (click)="update(medicine.id)">Update</button>
-                <button type="submit" style="margin-left: 10px;" class="btn btn-danger" (click)="delete(medicine.id)">Delete</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+    <div class="actions">
+        <a class="back-button" href="javascript:void(0);" routerLink="/docdash">Back</a>
+        <a class="add-button" href="javascript:void(0);" routerLink="/create-medicine">ADD NEW MEDICINE STOCK</a>
+    </div>
+
+    <table class="table table-striped table-custom">
+        <thead>
+            <tr class="table-header">
+                <th>ID</th>
+                <th>DRUG NAME</th>
+                <th>STOCK</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let medicine of medicines">
+                <td>{{medicine.id}}</td>
+                <td>{{medicine.drugName}}</td>
+                <td>{{medicine.stock}}</td>
+                <td>
+                    <button type="submit" class="btn btn-info" (click)="update(medicine.id)">Update</button>
+                    <button type="submit" style="margin-left: 10px;" class="btn btn-danger" (click)="delete(medicine.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="footer">
+        © 2024 GAURAV HOSPITALs. All rights reserved.
+    </div>
+</body>
+</html>

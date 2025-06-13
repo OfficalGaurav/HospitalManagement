@@ -1,0 +1,79 @@
+<div class="container">
+  <h2>Book New Appointment</h2>
+
+  <!-- Doctor Selection Section -->
+  <div *ngIf="doctors.length > 0" class="doctor-selection">
+    <h3>Select a Doctor</h3>
+    <table class="doctor-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Specialization</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let doctor of doctors">
+          <td>{{ doctor.name }}</td>
+          <td>{{ doctor.specialization }}</td>
+          <td>
+            <button class="btn select-btn" (click)="selectDoctor(doctor)">Select</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Appointment Booking Form -->
+  <div *ngIf="selectedDoctor" class="appointment-form">
+    <h3>Book Appointment with Dr. {{ selectedDoctor.name }}</h3>
+    
+    <form [formGroup]="stripeForm" (ngSubmit)="bookAppointment()">
+      <!-- Appointment Time -->
+      <div class="form-group">
+        <label for="appointmentTime">Appointment Time</label>
+        <input
+          type="datetime-local"
+          id="appointmentTime"
+          class="form-control"
+          [(ngModel)]="appointmentTime"
+          [ngModelOptions]="{standalone: true}"
+          required
+        />
+      </div>
+      
+      <!-- Payment Section -->
+      <div class="payment-section">
+        <h4>Payment Information</h4>
+        
+        <!-- Cardholder Name -->
+        <div class="form-group">
+          <label for="cardholder-name">Name on Card</label>
+          <input 
+            type="text" 
+            id="cardholder-name" 
+            class="form-control" 
+            formControlName="name"
+            required
+          />
+        </div>
+        
+        <!-- Stripe Card Element -->
+        <div class="form-group">
+          <label>Card Details</label>
+          <div id="card-element" #cardElement></div>
+        </div>
+      </div>
+      
+      <button type="submit" class="btn book-btn" [disabled]="stripeForm.invalid || isLoading">
+        <span *ngIf="!isLoading">Book and Pay $500</span>
+        <span *ngIf="isLoading">Processing...</span>
+      </button>
+    </form>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+</div>

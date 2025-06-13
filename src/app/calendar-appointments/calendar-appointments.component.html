@@ -1,0 +1,35 @@
+<div class="container">
+    <h2>Calendar Appointments</h2>
+    <div class="marquee-custom">
+      <marquee behavior="scroll" direction="left">Welcome to the Calendar Appointments. Please find the list of appointments saved from the calendar below!</marquee>
+    </div>
+    <h3 class="mt-4">Calendar Appointments List</h3>
+    <div class="tableFixHead">
+      <table class="table table-striped table-custom">
+        <thead class="table-header">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Symptoms</th>
+            <th>Number</th>
+            <th>Appointment Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let appointment of calendarAppointments">
+            <td>{{ appointment.id }}</td>
+            <td>{{ appointment.name }}</td>
+            <td>{{ appointment.age }}</td>
+            <td>{{ appointment.symptoms }}</td>
+            <td>{{ appointment.number }}</td>
+            <td>{{ appointment.date | date }}</td>
+            <td>
+              <button (click)="delete(appointment.id)" class="btn-danger">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

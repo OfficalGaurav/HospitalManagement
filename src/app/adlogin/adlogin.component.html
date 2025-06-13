@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,22 +8,73 @@
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
-        .navbar-custom {
+
+        .header {
             background-color: #004a99;
-        }
-        .navbar-custom .navbar-brand,
-        .navbar-custom .nav-link {
             color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            width: 100%;
         }
-        .navbar-custom .nav-link:hover {
-            background-color: #002f6c;
+
+        .subheader {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            width: 100%;
         }
-        .container h2 {
-            color: #333;
-            margin-top: 20px;
+
+        .main-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px;
+        }
+
+        .blue-section {
+            background-color: #004a99;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 10px 0 0 10px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
         }
+
+        .blue-section h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .blue-section p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+        }
+
         .marquee-custom {
             color: #555;
             font-size: x-large;
@@ -31,84 +83,111 @@
             border-radius: 10px;
             margin: 20px 0;
         }
-        .table-custom {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+        .form-group {
+            margin-bottom: 15px;
         }
-        .table-header {
+
+        .form-group label {
+            font-weight: bold;
+            color: #004a99;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            border: 2px solid #004a99;
+            border-radius: 5px;
+            height: 38px;
+            width: 100%;
+            padding: 5px;
+        }
+
+        .btn-success {
             background-color: #007bff;
-            color: white;
+            border: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
         }
-        .table-custom tbody tr:hover {
-            background-color: #f2f2f2;
+
+        .btn-success:hover {
+            background-color: #0056b3;
         }
+
         .footer {
             text-align: center;
-            padding: 5px;
+            padding: 10px;
             background-color: #004a99;
             color: white;
             position: fixed;
             bottom: 0;
             width: 100%;
         }
-        .form-group label {
-            font-weight: bold;
-            color: #004a99;
-            margin-bottom: 5px;
+
+        .actions {
+            margin: 20px 10px;
+            display: flex;
+            justify-content: space-between;
         }
-        .form-group input {
-            border: 2px solid #004a99;
+
+        .back-button {
+            background-color: #004a99;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
             border-radius: 5px;
-            height: 38px;
         }
-        .btn-success {
-            background-color: #007bff;
-            border: none;
-        }
-        .btn-success:hover {
-            background-color: #0056b3;
+
+        .back-button:hover {
+            background-color: #0519f8;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <a class="navbar-brand" href="#">GAURAV HOSPITALS</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#" routerLink="/create-appointment">Add Appointment</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" routerLink="/docdash">Back</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div class="header">
+        GAURAV HOSPITALS
+    </div>
+    <div class="subheader">
+        ADMIN LOGIN
+    </div>
 
-    <div class="container">
-        <h2>ADMIN LOGIN</h2>
-        <div class="marquee-custom">
-            <marquee behavior="scroll" direction="left">Welcome to the ADMIN LOGIN</marquee>
+    <div class="main-container">
+        <div class="blue-section">
+            <h3>Welcome Back!</h3>
+            <p>Please login to your account to access your personalized dashboard and manage your health records.</p>
+            <p>Helping <strong>For Good Cause</strong></p>
         </div>
-        <div>
-            <h2 class="text-center">PLEASE ENTER USERNAME & PASSWORD</h2>
-            <form>
-                <div class="form-group">
-                    <label for="username">UserName</label>
-                    <input type="text" id="username" class="form-control" name="username" placeholder="Enter your UserName" [(ngModel)]="username" autocomplete="name"/>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" class="form-control" name="password" placeholder="Enter your Password" [(ngModel)]="password" autocomplete="off"/>
-                </div>
-                <button (click)="checkLogin()" style="margin:6px;" class="btn btn-success" type="button">Login</button>
-                <button type="button" style="margin:6px;" class="btn btn-success" routerLink="/home">Cancel</button>
-            </form>
+        <div class="container">
+            <h2>ADMIN LOGIN</h2>
+            <div class="marquee-custom">
+                <marquee behavior="scroll" direction="left">Welcome to the ADMIN LOGIN</marquee>
+            </div>
+            <div>
+                <h2 class="text-center">PLEASE ENTER EMAIL & PASSWORD</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" name="email" placeholder="Enter your Email" [(ngModel)]="email" autocomplete="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="otp">OTP</label>
+                        <input type="text" id="otp" class="form-control" name="otp" placeholder="Enter OTP" [(ngModel)]="otp" autocomplete="off"/>
+                    </div>
+                    <button (click)="sendOTP()" class="btn btn-success" type="button">Send OTP</button>
+                    <button (click)="checkLogin()" class="btn btn-success" type="button">Login</button>
+                    <button type="button" class="btn btn-success" routerLink="/home">Cancel</button>
+                </form>
+            </div>
         </div>
     </div>
+
+    <div class="footer">
+        © 2024 GAURAV SINGH HOSPITALS. All rights reserved.
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

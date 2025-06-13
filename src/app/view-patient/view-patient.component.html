@@ -1,66 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Gaurav Hospital</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAURAV HOSPITAL</title>
     <style>
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
         }
-        table {
-            width: 100%;
+
+        .header {
+            background-color: #004a99;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .subheader {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .actions {
+            margin: 20px 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .back-button,
+        .add-button {
+            background-color: #004a99;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .back-button:hover,
+        .add-button:hover {
+            background-color: #002f6c;
+        }
+
+        .table-custom {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px 10px;
+            width: calc(100% - 40px);
             border-collapse: collapse;
         }
-        th, td {
-            padding: 10px;
-            border: 1px solid #ccc;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .marquee-container {
-            background-color: #009688;
+
+        .table-header {
+            background-color: #007bff;
             color: white;
+            text-align: left;
             padding: 10px;
-            font-size: 24px;
+        }
+
+        .table-custom th, .table-custom td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table-custom tbody tr:hover {
+            background-color: #d5cc18;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #004a99;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <div class="marquee-container">
-        <marquee>Welcome to Gaurav Hospital</marquee>
+    <div class="header">
+        GAURAV HOSPITAL
     </div>
 
-    <div class="container">
-        <table>
-            <tr>
+    <div class="subheader">
+        VIEW PATIENT DETAILS
+    </div>
+
+    <div class="actions">
+        <a class="back-button" href="javascript:void(0);" routerLink="/docdash">Back</a>
+    </div>
+
+    <a class="add-button" href="javascript:void(0);" routerLink="/calendar">View Calendar</a>
+
+    <table class="table-custom">
+        <thead>
+            <tr class="table-header">
                 <th>ID</th>
-                <td><b>{{patient.id}}</b></td>
-            </tr>
-            <tr>
                 <th>Name</th>
-                <td><b>{{patient.name}}</b></td>
-            </tr>
-            <tr>
                 <th>Age</th>
-                <td><b>{{patient.age}}</b></td>
-            </tr>
-            <tr>
                 <th>Blood Type</th>
-                <td><b>{{patient.blood}}</b></td>
-            </tr>
-            <tr>
-                <th>Dose</th>
-                <td><b>{{patient.dose}}</b></td>
-            </tr>
-            <tr>
                 <th>Fees</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>{{patient.id}}</b></td>
+                <td><b>{{patient.name}}</b></td>
+                <td><b>{{patient.age}}</b></td>
+                <td><b>{{patient.blood}}</b></td>
                 <td><b>{{patient.fees}}</b></td>
             </tr>
-        </table>
+        </tbody>
+    </table>
+
+    <div class="footer">
+        &copy; 2024 GAURAV HOSPITAL
     </div>
 </body>
 </html>

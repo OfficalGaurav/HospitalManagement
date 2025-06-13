@@ -3,45 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Medicine</title>
+    <title>Add New Medicine</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .navbar-custom {
-            background-color: #e3f2fd; /* Light blue background for the navbar */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
         }
-        .btn-success {
-            background-color: green; /* Ensures the submit button is green */
+
+        .header {
+            background-color: #004a99;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
         }
-        .form-group label {
-            color: #007bff; /* Blue color for labels to match the example */
-        }
-        .container h2 {
-            color: #007bff; /* Blue color for the header */
-        }
-        .marquee {
+
+        .subheader {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
             font-size: 18px;
-            color: red; /* Red color for attention */
+        }
+
+        .actions {
+            margin: 20px 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .back-button,
+        .add-button {
+            background-color: #004a99;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-button:hover,
+        .add-button:hover {
+            background-color: #002f6c;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin: 20px 10px;
+            flex: 1; /* This will make the container take up the remaining space */
+            max-width: 1515px; /* Optional: Limits the container's maximum width */
+        }
+
+        h2.text-center {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            color: #0056b3;
+            font-weight: bold;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 2px solid #007bff;
+        }
+
+        .btn-success {
+            background-color: #0056b3;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .btn-success:hover {
+            background-color: #004a99;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #004a99;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <a class="navbar-brand" href="#">GAURAV HOSPITALS</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/view-medicine">Back</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div class="header">
+        GAURAV HOSPITALS
+    </div>
+
+    <div class="subheader">
+        <strong>MEDICINE DEPARTMENT</strong>
+    </div>
+
+    <div class="actions">
+        <a class="back-button" href="javascript:void(0);" routerLink="/view-medicine">Back</a>
+    </div>
+
+
 
     <div class="container">
-        <marquee class="marquee">Important: Please double-check the medicine stock regularly!</marquee>
-        <h2 class="text-center">Create MEDICINE</h2>
+        <h2 class="text-center">ADD NEW MEDICINE</h2>
         <form (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="drugName">Drug Name</label>
@@ -56,7 +129,9 @@
             <button type="submit" class="btn btn-success">Submit</button>
         </form>
     </div>
-
+    <div class="footer">
+        &copy; 2024 GAURAV HOSPITALs
+    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

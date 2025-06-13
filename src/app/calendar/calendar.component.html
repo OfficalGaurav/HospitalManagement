@@ -1,0 +1,15 @@
+<div class="calendar-container">
+    <full-calendar [options]="calendarOptions"></full-calendar>
+  </div>
+  
+  <!-- Button to view appointment list -->
+  <div class="actions">
+    <a routerLink="/appointment-list" class="add-button">View Appointment List</a>
+  </div>
+  
+  <!-- Display selected appointment details -->
+  <div *ngIf="selectedAppointment" class="appointment-details">
+    <h3>Appointment Details</h3>
+    <p><strong>Patient Name:</strong> {{ selectedAppointment.name }}</p>
+    <p><strong>Appointment Date:</strong> {{ selectedAppointment.date | date }}</p>
+  </div>

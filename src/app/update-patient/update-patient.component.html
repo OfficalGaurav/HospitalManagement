@@ -1,85 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Medicine</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .navbar-custom {
-            background-color: #e3f2fd; /* Light blue background for the navbar */
-        }
-        .btn-success {
-            background-color: green; /* Ensures the submit button is green */
-        }
-        .form-group label {
-            color: #007bff; /* Blue color for labels to match the example */
-        }
-        .container h2 {
-            color: #007bff; /* Blue color for the header */
-        }
-        .marquee {
-            font-size: 18px;
-            color: red; /* Red color for attention */
-        }
-    </style>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <a class="navbar-brand" href="#">GAURAV HOSPITALS</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/view-medicine">Back</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+<div class="header">
+    GAURAV HOSPITALS
+</div>
 
-    <div class="container">
-        <marquee class="marquee">Update Patient Details</marquee>
-        <h2 class="text-center">Update Patient</h2>
+<div class="subheader">
+    UPDATE PATIENT DEPARTMENT
+</div>
+
+<div class="actions">
+    <a class="back-button" href="javascript:void(0);" routerLink="/docdash">Back</a>
+</div>
+
+<div class="container">
+    <div class="marquee-custom">
+        <marquee behavior="scroll" direction="left">Important: Please verify all patient details before updating!</marquee>
+    </div>
+
+    <div class="form-container">
+        <div class="subheader">
+            <h2>UPDATE PATIENT DETAILS</h2>
+        </div>
         <form (ngSubmit)="onSubmit()">
+            <!-- Name Field -->
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" class="form-control" name="name" placeholder="Enter your Name" [(ngModel)]="patient.name" autocomplete="name"/>
+                <input type="text" id="name" class="form-control" name="name" 
+                       placeholder="Enter patient Name" [(ngModel)]="patient.name" required />
             </div>
-
+        
+            <!-- Age Field -->
             <div class="form-group">
                 <label for="age">Age</label>
-                <input type="text" id="age" class="form-control" name="age" placeholder="Enter your Age" [(ngModel)]="patient.age" autocomplete="age"/>
+                <input type="number" id="age" class="form-control" name="age" 
+                       placeholder="Enter patient Age" [(ngModel)]="patient.age" 
+                       min="1" max="120" required />
             </div>
-
+        
+            <!-- Blood Type Dropdown -->
             <div class="form-group">
-                <label for="blood">Blood</label>
-                <input type="text" id="blood" class="form-control" name="blood" placeholder="Enter Blood Type" [(ngModel)]="patient.blood" autocomplete="off"/>
+                <label for="blood">Blood Type</label>
+                <select id="blood" class="form-control" name="blood" 
+                        [(ngModel)]="patient.blood" required>
+                    <option value="" disabled selected>Select Blood Type</option>
+                    <option *ngFor="let bloodType of bloodTypes" [value]="bloodType">
+                        {{ bloodType }}
+                    </option>
+                </select>
             </div>
-
+        
+            <!-- Mobile Number Field -->
             <div class="form-group">
-                <label for="prescription">Prescription</label>
-                <input type="text" id="prescription" class="form-control" name="prescription" placeholder="Enter Prescription" [(ngModel)]="patient.prescription" autocomplete="off"/>
+                <label for="mobileNumber">Mobile Number</label>
+                <input type="text" id="mobileNumber" class="form-control" name="mobileNumber" 
+                       placeholder="Enter Mobile Number (e.g., +91XXXXXXXXXX)" 
+                       [(ngModel)]="patient.mobileNumber" 
+                       pattern="^\+?\d{10,15}$"
+                       required />
+                <small class="form-text text-muted">Format: +91 followed by 10 digits</small>
             </div>
-
-            <div class="form-group">
-                <label for="dose">Dose</label>
-                <input type="text" id="dose" class="form-control" name="dose" placeholder="Enter Dose" [(ngModel)]="patient.dose" autocomplete="off"/>
-            </div>
-
+        
+            <!-- Fees Field -->
             <div class="form-group">
                 <label for="fees">Fees</label>
-                <input type="text" id="fees" class="form-control" name="fees" placeholder="Enter the Fees" [(ngModel)]="patient.fees" autocomplete="off"/>
+                <input type="number" id="fees" class="form-control" name="fees" 
+                       placeholder="Enter consultation fees" [(ngModel)]="patient.fees" 
+                       min="0" step="0.01" required />
             </div>
-
+        
+            <!-- Urgency Dropdown -->
             <div class="form-group">
                 <label for="urgency">Urgency</label>
-                <input type="text" id="urgency" class="form-control" name="urgency" placeholder="Enter Urgency" [(ngModel)]="patient.urgency" autocomplete="off"/>
+                <select id="urgency" class="form-control" name="urgency" 
+                        [(ngModel)]="patient.urgency" required>
+                    <option value="" disabled selected>Select Urgency</option>
+                    <option *ngFor="let option of urgencyOptions" [value]="option">
+                        {{ option }}
+                    </option>
+                </select>
             </div>
-
-            <button type="submit" class="btn btn-success">Submit</button>
+        
+            <!-- Error Message -->
+            <div *ngIf="errorMessage" class="alert alert-danger">
+                {{ errorMessage }}
+            </div>
+        
+            <!-- Submit Button -->
+            <div class="form-actions">
+                <button type="submit" class="btn btn-update">Update Patient</button>
+            </div>
         </form>
     </div>
-</body>
-</html>
+</div>
+
+<div class="footer">
+    © 2024 GAURAV HOSPITALS. All rights reserved.
+</div>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Login - GAURAV HOSPITAL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body, h1, h2, p, ul, footer {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(to right, #f7f8fc, #e2ebf0);
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #0d47a1, #1976d2);
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-container {
+            display: flex;
+            margin: 50px auto;
+            max-width: 1000px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .blue-section {
+            background: linear-gradient(to right, #0d47a1, #1976d2);
+            color: #fff;
+            padding: 40px;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .blue-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .blue-section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .login-form {
+            padding: 40px;
+            width: 60%;
+        }
+
+        .login-form h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #0d47a1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: #0d47a1;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #0d47a1, #1976d2);
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(to right, #1976d2, #0d47a1);
+            transform: translateY(-3px);
+        }
+
+        .alert-danger {
+            background: #ffebee;
+            color: #c62828;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+            }
+
+            .blue-section, .login-form {
+                width: 100%;
+            }
+
+            .blue-section {
+                padding: 20px;
+            }
+
+            .login-form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GAURAV HOSPITAL</h1>
+    </header>
+    <div class="login-container">
+        <!-- Blue Section on the Left -->
+        <div class="blue-section">
+          <h2>Welcome Back!</h2>
+          <p>Please login to your account to access your personalized dashboard and manage your health records.</p>
+          <p>Don’t have an account? <strong>Contact us to get started!</strong></p>
+        </div>
+      
+        <!-- Login Form on the Right -->
+        <div class="login-form">
+            <h2>Patient Login</h2>
+            <form (ngSubmit)="showOtpField ? validateOTP() : sendOTP()">
+              <div class="form-group">
+                <label for="mobileNumber">Mobile Number</label>
+                <input
+                  type="text"
+                  id="mobileNumber"
+                  class="form-control"
+                  name="mobileNumber"
+                  placeholder="Enter your mobile number"
+                  [(ngModel)]="mobileNumber"
+                  required
+                />
+              </div>
+              <div *ngIf="showOtpField" class="form-group">
+                <label for="otp">OTP</label>
+                <input
+                  type="text"
+                  id="otp"
+                  class="form-control"
+                  name="otp"
+                  placeholder="Enter OTP"
+                  [(ngModel)]="otp"
+                  required
+                />
+              </div>
+              <div *ngIf="errorMessage" class="alert alert-danger">
+                {{ errorMessage }}
+              </div>
+              <button type="submit" class="btn btn-primary">
+                {{ showOtpField ? 'Validate OTP' : 'Send OTP' }}
+              </button>
+              <button type="button" class="btn btn-secondary" (click)="navigateToRegister()">Register</button>
+            </form>
+          </div>
+        </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

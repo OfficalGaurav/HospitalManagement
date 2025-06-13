@@ -1,0 +1,19 @@
+<h2>Completed Appointments</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Date & Time</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let appointment of completedAppointments">
+      <td>{{ appointment.patientName }}</td>
+      <td>{{ appointment.dateTime }}</td>
+      <td>
+        <button (click)="viewMore(appointment)" class="btn btn-info">View More</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

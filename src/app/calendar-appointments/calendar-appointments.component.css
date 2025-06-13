@@ -1,0 +1,45 @@
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    flex: 1;
+    max-width: 1000px;
+  }
+  
+  .marquee-custom {
+    color: #555;
+    font-size: x-large;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+  
+  .table-custom {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table-header {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .table-custom tbody tr:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+  }

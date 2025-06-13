@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #004a99;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .subheader {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .actions {
+            margin: 20px 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .back-button,
+        .add-button {
+            background-color: #004a99;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-button:hover,
+        .add-button:hover {
+            background-color: #002f6c;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: #0d47a1;
+            outline: none;
+        }
+
+        .btn-success {
+            background: linear-gradient(to right, #28a745, #218838);
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn-success:hover {
+            background: linear-gradient(to right, #218838, #28a745);
+            transform: translateY(-3px);
+        }
+
+        .alert-danger {
+            background: #ffebee;
+            color: #c62828;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #004a99;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        GAURAV HOSPITALS
+    </div>
+
+    <div class="subheader">
+        NEW PATIENT DEPARTMENT
+    </div>
+
+    <div class="actions">
+        <a class="back-button" href="javascript:void(0);" routerLink="/login">Back</a>
+    </div>
+
+    <div class="container">
+        <div class="marquee-custom">
+            <marquee behavior="scroll" direction="left">Welcome to the Create New Patient Department. Please add the patient details below!</marquee>
+        </div>
+
+        <div class="form-container">
+            <h2>CREATE NEW PATIENT</h2>
+            <form (ngSubmit)="onSubmit()">
+                <!-- Name Field -->
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" class="form-control" name="name" placeholder="Enter your Name" [(ngModel)]="patient.name" required />
+                </div>
+
+                <!-- Age Field -->
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" class="form-control" name="age" placeholder="Enter your Age" [(ngModel)]="patient.age" min="1" max="120" required />
+                </div>
+
+                <!-- Blood Type Dropdown -->
+                <div class="form-group">
+                    <label for="blood">Blood Type</label>
+                    <select id="blood" class="form-control" name="blood" [(ngModel)]="patient.blood" required>
+                        <option value="" disabled selected>Select Blood Type</option>
+                        <option *ngFor="let bloodType of bloodTypes" [value]="bloodType">{{ bloodType }}</option>
+                    </select>
+                </div>
+
+                <!-- Mobile Number Field -->
+                <div class="form-group">
+                    <label for="mobileNumber">Mobile Number</label>
+                    <input type="text" id="mobileNumber" class="form-control" name="mobileNumber" placeholder="Enter Mobile Number (e.g., +91XXXXXXXXXX)" [(ngModel)]="patient.mobileNumber" required />
+                </div>
+
+                <!-- Fees Field (Disabled) -->
+               
+
+                <!-- Urgency Dropdown -->
+                <div class="form-group">
+                    <label for="urgency">Urgency</label>
+                    <select id="urgency" class="form-control" name="urgency" [(ngModel)]="patient.urgency" required>
+                        <option value="" disabled selected>Select Urgency</option>
+                        <option *ngFor="let option of urgencyOptions" [value]="option">{{ option }}</option>
+                    </select>
+                </div>
+
+                <!-- Error Message -->
+                <div *ngIf="errorMessage" class="alert alert-danger">
+                    {{ errorMessage }}
+                </div>
+
+                <!-- Submit Button -->
+                <br>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2024 GAURAV HOSPITALS. All rights reserved.
+    </div>
+</body>
+</html>

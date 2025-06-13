@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="header">
+        <h1>GAURAV HOSPITALS</h1>
+        <div class="subheader">COMPLETED APPOINTMENTS</div>
+    </div>
+
+    <div class="actions">
+        <a class="back-button" routerLink="/appointment">Back to Appointments</a>
+    </div>
+
+    <div class="completed-appointments">
+        <h2>Completed Appointments</h2>
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Patient</th>
+                    <th>Symptoms</th>
+                    <th>Appointment Time</th>
+                    <th>Doctor</th>
+                    <th>Medicine Prescribed</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let appointment of completedAppointments">
+                    <td>{{ appointment.patientName }}</td>
+                    <td>{{ appointment.symptoms }}</td>
+                    <td>{{ appointment.appointmentTime | date:'medium' }}</td>
+                    <td>{{ appointment.doctorName }}</td>
+                    <td>{{ appointment.medicinePrescribed }}</td>
+                    <td>{{ appointment.prescriptionNotes }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

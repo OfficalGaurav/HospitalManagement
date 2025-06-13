@@ -1,0 +1,66 @@
+<div class="container">
+  <h2>Patient Dashboard</h2>
+
+  <!-- Patient Details -->
+  <div *ngIf="patient" class="patient-details">
+    <h3>Your Details</h3>
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <th>Name</th>
+          <td>{{ patient.name }}</td>
+        </tr>
+        <tr>
+          <th>Age</th>
+          <td>{{ patient.age }}</td>
+        </tr>
+        <tr>
+          <th>Blood Group</th>
+          <td>{{ patient.blood }}</td>
+        </tr>
+        <tr>
+          <th>Mobile Number</th>
+          <td>{{ patient.mobileNumber }}</td>
+        </tr>
+        <tr>
+          <th>Urgency</th>
+          <td>{{ patient.urgency }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Appointment Details -->
+  <div *ngIf="patient && patient.assignedDoctorId && patient.appointmentTime" class="appointment-details">
+    <h3>Appointment Details</h3>
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <th>Assigned Doctor</th>
+          <td>{{ patient.assignedDoctorId }}</td>
+        </tr>
+        <tr>
+          <th>Appointment Time</th>
+          <td>{{ patient.appointmentTime | date: 'medium' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- No Appointment Message -->
+  <div *ngIf="patient && (!patient.assignedDoctorId || !patient.appointmentTime)" class="alert alert-info">
+    You do not have any scheduled appointments.
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="text-center mt-4">
+    <button class="btn btn-primary" (click)="navigateToNewAppointment()">Want New Appointment</button>
+    <button class="btn btn-info ml-2" (click)="openChatbot()">
+      <i class="fas fa-comment-medical"></i> Medical Assistant
+    </button> 
+    <button class="btn btn-danger ml-2" (click)="logout()">Logout</button>
+  </div>
+
+  <!-- Chatbot Container -->
+  
+</div>

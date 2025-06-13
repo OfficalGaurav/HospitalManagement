@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>All Current Patients</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Blood Group</th>
+          <th>Mobile Number</th>
+          <th>Fees</th>
+          <th>Urgency</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patient of patients">
+          <td>{{ patient.id }}</td>
+          <td>{{ patient.name }}</td>
+          <td>{{ patient.age }}</td>
+          <td>{{ patient.blood }}</td>
+          <td>{{ patient.mobileNumber }}</td>
+          <td>{{ patient.fees }}</td>
+          <td>{{ patient.urgency }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

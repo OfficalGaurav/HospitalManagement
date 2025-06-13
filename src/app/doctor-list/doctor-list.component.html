@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Doctor List</h2>
+    <table class="table table-striped table-custom">
+        <thead class="table-header">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Specialization</th>
+                <th>Contact Number</th>
+                <th>Email</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let doctor of doctors">
+                <td>{{ doctor.id }}</td>
+                <td>{{ doctor.name }}</td>
+                <td>{{ doctor.specialization }}</td>
+                <td>{{ doctor.contactNumber }}</td>
+                <td>{{ doctor.email }}</td>
+
+            </tr>
+        </tbody>
+    </table>
+    <button (click)="createDoctor()" class="btn btn-success">Add Doctor</button>
+</div>

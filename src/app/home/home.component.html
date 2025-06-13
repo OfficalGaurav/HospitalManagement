@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAURAV HOSPITAL - Your Trusted Healthcare Partner</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body, h1, h2, p, ul, footer {
             margin: 0;
@@ -21,19 +22,19 @@
         header {
             background: linear-gradient(to right, #0d47a1, #1976d2);
             color: #fff;
-            text-align: center;
             padding: 20px 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         header h1 {
-            font-size: 3em;
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5em;
             font-weight: 700;
             margin-bottom: 10px;
-        }
-
-        nav {
-            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         nav ul {
@@ -50,12 +51,14 @@
         nav ul li a {
             color: #fff;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
             font-size: 1.2em;
+            transition: color 0.3s, transform 0.3s;
         }
 
         nav ul li a:hover {
-            text-decoration: underline;
+            color: #ffccbc;
+            transform: translateY(-3px);
         }
 
         .login-links {
@@ -65,39 +68,36 @@
         .login-links a {
             color: #fff;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
             font-size: 1.1em;
             margin: 0 10px;
             padding: 10px 20px;
             background: #ff5722;
             border-radius: 5px;
             border: 2px solid #fff;
-            transition: background 0.3s, border 0.3s;
+            transition: background 0.3s, transform 0.3s;
         }
 
         .login-links a:hover {
             background: #e64a19;
-            border: 2px solid #ffccbc;
+            transform: translateY(-3px);
         }
 
-        .img-fluid {
-            max-width: 40%;
-            height: auto;
+        .carousel-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
         }
 
-        .feature-banner {
-            display: flex;
-            justify-content: space-around;
-            padding: 10px;
-            background-color: #ffffff;
-            border: 1px solid #1976d2;
-            margin: 10px 0;
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
         }
 
-        .highlight {
-            color: #d32f2f;
-            font-weight: bold;
-            font-size: 1.2em;
+        .carousel-caption h5 {
+            font-size: 2em;
+            font-weight: 700;
         }
 
         .section-header {
@@ -105,6 +105,7 @@
             color: #0d47a1;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
             font-size: 2.5em;
+            font-family: 'Poppins', sans-serif;
         }
 
         .content-section {
@@ -113,14 +114,52 @@
             padding: 30px;
             margin-top: 20px;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-            font-size: 1.2em;
+            border-radius: 10px;
         }
 
-        .availability {
-            text-align: center;
-            font-size: 1.5em;
+        .blue-section {
+            background-color: #0d47a1;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .blue-section h3 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background: linear-gradient(to right, #007bff, #00bcd4);
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(to right, #00bcd4, #007bff);
+            transform: translateY(-3px);
+        }
+
+        .btn-custom {
+            background: linear-gradient(to right, #007bff, #00bcd4);
+            border: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
             margin-top: 10px;
-            color: #1976d2;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn-custom:hover {
+            background: linear-gradient(to right, #00bcd4, #007bff);
+            transform: translateY(-3px);
         }
 
         .footer {
@@ -142,86 +181,129 @@
                 margin: 10px 0;
             }
 
-            nav ul li a {
-                font-size: 1.1em;
-            }
-
             .section-header {
-                font-size: 2.2em;
+                font-size: 2em;
             }
 
             .content-section {
                 padding: 20px;
-            }
-
-            .availability {
-                font-size: 1.2em;
-            }
-
-            .login-links a {
-                font-size: 1em;
-                padding: 8px 16px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>GAURAV HOSPITALS</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="login-links">
-            <a href="javascript:void(0);" routerLink="/doclogin">Login as Doctor</a>
-            <a href="javascript:void(0);" routerLink="/adlogin">Login as Admin</a>
+        <div class="container">
+            <h1>GAURAV HOSPITAL</h1>
+            <nav>
+                <ul class="social-links">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <div >
+                        <a href="https://facebook.com/hms" target="_blank">Facebook</a>
+                        <a href="https://twitter.com/hms" target="_blank">Twitter</a>
+                        <a href="https://wa.me/whatsapp" target="_blank">WhatsApp</a>
+                        <a href="https://linkedin.com/hms" target="_blank">LinkedIn</a>
+                        
+                    </div>
+                </ul>
+                <br>
+                
+            </nav>
+            <div class="login-links">
+                <a href="javascript:void(0);" routerLink="/doclogin">Login as Doctor</a>
+                <a href="javascript:void(0);" routerLink="/adlogin">Login as Admin</a>
+                <a href="javascript:void(0);" routerLink="/login">Patient Login</a>
+                <a href="javascript:void(0);" routerLink="/suplogin">Super Admin Login</a>
+            </div>
         </div>
     </header>
 
-    <marquee behavior="scroll" direction="left" scrollamount="10" style="width: 100%;">
-        <div class="feature-banner">
-            <div><img src="./assets/HOSPITAL3.jpg" alt="Feature 1" class="img-fluid"><span class="highlight">State-of-the-art Surgery Rooms</span></div>
-            <div><img src="./assets/HOSPITAL4.jpg" alt="Feature 2" class="img-fluid"><span class="highlight">24/7 Emergency Services</span></div>
-            <div><img src="./assets/HOSPITAL5.jpg" alt="Feature 3" class="img-fluid"><span class="highlight">Dedicated Patient Care Teams</span></div>
+    <div id="featureCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./assets/HOSPITAL3.jpg" alt="Feature 1" class="d-block w-100">
+                <div class="carousel-caption">
+                    <h5>State-of-the-art Surgery Rooms</h5>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/HOSPITAL4.jpg" alt="Feature 2" class="d-block w-100">
+                <div class="carousel-caption">
+                    <h5>24/7 Emergency Services</h5>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/HOSPITAL5.jpg" alt="Feature 3" class="d-block w-100">
+                <div class="carousel-caption">
+                    <h5>Dedicated Patient Care Teams</h5>
+                </div>
+            </div>
         </div>
-    </marquee>
+        <button class="carousel-control-prev" type="button" data-bs-target="#featureCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#featureCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 
     <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <section id="about">
+                    <h2 class="section-header">About Us</h2>
+                    <div class="content-section">
+                        <p>At GAURAV HOSPITALs, we are committed to delivering top-notch medical care to our community. Our hospital is equipped with the latest medical technology and staffed by highly skilled professionals who are dedicated to providing personalized care.</p>
+                        <p>Our mission is to enhance the health and well-being of our patients through comprehensive medical services, continuous innovation, and compassionate care.</p>
+                    </div>
+                </section>
 
-        <section id="about">
-            <h2 class="section-header">About Us</h2>
-            <div class="content-section">
-                <p>At Gaurav Hospitals, we are committed to delivering top-notch medical care to our community. Our hospital is equipped with the latest medical technology and staffed by highly skilled professionals who are dedicated to providing personalized care.</p>
-                <p>Our mission is to enhance the health and well-being of our patients through comprehensive medical services, continuous innovation, and compassionate care.</p>
-            </div>
-        </section>
+                <section id="services">
+                    <h2 class="section-header">Our Services</h2>
+                    <div class="content-section">
+                        <p>We offer a broad range of medical services to cater to your health needs. Our services include:</p>
+                        <ul>
+                            <li>Emergency Care: Available 24/7 to handle any medical emergencies.</li>
+                            <li>Advanced Surgical Procedures: Utilizing the latest technology for safe and effective surgeries.</li>
+                            <li>Outpatient Services: Comprehensive care for non-hospitalized patients.</li>
+                            <li>Specialized Treatments: Customized treatment plans for various medical conditions.</li>
+                        </ul>
+                    </div>
+                </section>
 
-        <section id="services">
-            <h2 class="section-header">Our Services</h2>
-            <div class="content-section">
-                <p>We offer a broad range of medical services to cater to your health needs. Our services include:</p>
-                <ul>
-                    <li>Emergency Care: Available 24/7 to handle any medical emergencies.</li>
-                    <li>Advanced Surgical Procedures: Utilizing the latest technology for safe and effective surgeries.</li>
-                    <li>Outpatient Services: Comprehensive care for non-hospitalized patients.</li>
-                    <li>Specialized Treatments: Customized treatment plans for various medical conditions.</li>
-                </ul>
-                <p>Our commitment to excellence ensures that you receive the highest quality of care in a safe and comfortable environment.</p>
+                <section id="contact">
+                    <h2 class="section-header">Contact Us</h2>
+                    <div class="content-section">
+                        <p>If you have any questions or need assistance, please feel free to reach out to us. We are here to help you 24/7.</p>
+                        <p>Phone: +91 76456732759</p>
+                        <p>Twitter: x.com/officalgaurav10</p>
+                        <p>Address: gaurav land Healthcare Blvd, Gaurav City,PIN-000001</p>
+                    </div>
+                </section>
             </div>
-        </section>
-
-        <section id="contact">
-            <h2 class="section-header">Contact Us</h2>
-            <div class="content-section">
-                <p>If you have any questions or need assistance, please feel free to reach out to us. We are here to help you 24/7.</p>
-                <p>Phone: +91 76456732759</p>
-                <p>Twitter: x.com/officalgaurav10</p>
-                <p>Address: gaurav land Healthcare Blvd, Gaurav City,PIN-000001</p>
+            <div class="col-md-6">
+                <div class="blue-section">
+                    <h3>Welcome Back!</h3>
+                    <p>Please login to your account to access your personalized dashboard and manage your health records.</p>
+                    <p>Don’t have an account? <strong>Get Started!</strong></p>
+                </div>
+               
+                <div class="customer-reviews">
+                    <h3>Customer Reviews</h3>
+                    <p>Read what our patients have to say about their experiences at GAURAV HOSPITALs.</p>
+                    <button class="btn-custom">Read Reviews</button>
+                </div>
+                <div class="consultant-doctors">
+                    <h3>Consultant Doctors</h3>
+                    <p>Meet our team of highly skilled and experienced consultant doctors.</p>
+                    <button class="btn-custom">View Doctors</button>
+                </div>
             </div>
-        </section>
+        </div>
     </div>
 
     <div class="footer">
@@ -229,5 +311,16 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>

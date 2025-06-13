@@ -22,8 +22,9 @@ export class MedicineService {
   getMedicineById(id:number):Observable<Medicine>{
     return this.httpClient.get<Medicine>(`${this.baseUrl}/${id}`);
   }
-  updateMedicine(id:number,medicine:Medicine):Observable<object>{
-    return this.httpClient.put<Medicine>(`${this.baseUrl}/${id}`,medicine);
+  updateMedicine(id: number, medicine: Medicine): Observable<Medicine> {
+    // Ensure stock is treated as number
+    return this.httpClient.put<Medicine>(`${this.baseUrl}/${id}`, medicine);
   }
   delete(id:number):Observable<object>{
     return this.httpClient.delete<Medicine>(`${this.baseUrl}/${id}`);

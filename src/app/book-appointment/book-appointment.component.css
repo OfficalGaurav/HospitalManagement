@@ -1,0 +1,161 @@
+/* Container styling */
+.stripe-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  min-height: 40px; /* Ensure element has space to render */
+}
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading styling */
+  h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  h3 {
+    font-size: 22px;
+    font-weight: 500;
+    color: #34495e;
+    margin-bottom: 15px;
+  }
+  
+  /* Doctor Selection Section */
+  .doctor-selection {
+    margin-bottom: 30px;
+  }
+  
+  .doctor-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .doctor-table thead {
+    background-color: #3498db;
+    color: #ffffff;
+  }
+  
+  .doctor-table th,
+  .doctor-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .doctor-table th {
+    font-weight: 600;
+  }
+  
+  .doctor-table tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Button styling */
+  .btn {
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .select-btn {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+  }
+  
+  .select-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+  }
+  
+  .book-btn {
+    background-color: #2ecc71;
+    color: #ffffff;
+    border: none;
+  }
+  
+  .book-btn:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+  }
+  
+  /* Appointment Booking Form */
+  .appointment-form {
+    margin-top: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #34495e;
+    margin-bottom: 8px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  /* Error Message */
+  .error-message {
+    background-color: #e74c3c;
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 24px;
+    }
+  
+    h3 {
+      font-size: 20px;
+    }
+  
+    .doctor-table th,
+    .doctor-table td {
+      padding: 10px;
+    }
+  
+    .btn {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+  }

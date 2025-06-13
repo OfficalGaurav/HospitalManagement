@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Validate OTP</h2>
+    <form (ngSubmit)="validateOtp()">
+      <div class="form-group">
+        <label for="otp">OTP</label>
+        <input
+          type="text"
+          id="otp"
+          class="form-control"
+          name="otp"
+          placeholder="Enter the OTP"
+          [(ngModel)]="otp"
+          required
+        />
+      </div>
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+      <button type="submit" class="btn btn-primary">Validate OTP</button>
+    </form>
+  </div>

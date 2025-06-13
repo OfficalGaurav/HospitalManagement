@@ -1,0 +1,147 @@
+<div class="super-admin-container">
+  <header>
+    <h1>Super Admin Dashboard</h1>
+    <button (click)="logout()" class="logout-btn">Logout</button>
+  </header>
+
+  <nav class="super-admin-nav">
+  <a (click)="logout()">Logout</a>
+  </nav>
+
+  <section id="admins" class="admin-section">
+    <h2>Manage Admins</h2>
+    <div class="add-admin">
+      <input [(ngModel)]="newAdminEmail" placeholder="Enter admin email">
+      <button (click)="addAdmin()">Add Admin</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let email of adminEmails">
+          <td>{{email}}</td>
+          <td>
+            <button (click)="removeAdmin(email)" class="delete-btn">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="doctors" class="doctor-section">
+    <h2>Manage Doctors</h2>
+    <button class="btn btn-success mb-3" routerLink="/create-doctor">+ Add New Doctor</button>
+           
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Specialization</th>
+          <th>Email</th>
+          <th>Contact</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let doctor of doctors">
+          <td>{{doctor.name}}</td>
+          <td>{{doctor.specialization}}</td>
+          <td>{{doctor.email}}</td>
+          <td>{{doctor.contactNumber}}</td>
+          <td>
+            <button class="btn btn-success mb-3" routerLink="/update-doctor">+ Update Doctor</button>
+            
+            <button (click)="deleteDoctor(doctor.id)" class="delete-btn">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="patients" class="patient-section">
+    <h2>Manage Patients</h2>
+    <button class="btn btn-success mb-3" routerLink="/create-patient">+ Add New Patient</button>
+            
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Blood Group</th>
+          <th>Mobile</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patient of patients">
+          <td>{{patient.name}}</td>
+          <td>{{patient.age}}</td>
+          <td>{{patient.blood}}</td>
+          <td>{{patient.mobileNumber}}</td>
+          <td>
+            <button class="btn btn-success mb-3" [routerLink]="['/update-patient', patient.id]">Update</button>
+            <button (click)="deletePatient(patient.id)" class="delete-btn">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="medicines" class="medicine-section">
+    <h2>Manage Medicines</h2>
+    <button class="btn btn-success mb-3" routerLink="/create-medicine">+ Add New Medicine</button>
+            
+    <table>
+      <thead>
+        <tr>
+          <th>Drug Name</th>
+          <th>Stock</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let medicine of medicines">
+          <td>{{medicine.drugName}}</td>
+          <td>{{medicine.stock}}</td>
+          <td>
+           <button class="btn btn-success mb-3" routerLink="/update-medicine">+ Update Medicine</button>
+            <button (click)="deleteMedicine(medicine.id)" class="delete-btn">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="billings" class="billing-section">
+    <h2>View Billings</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Patient ID</th>
+          <th>Amount</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let billing of billings">
+          <td>{{billing.patientId}}</td>
+          <td>{{billing.amount}}</td>
+          <td>{{billing.date | date}}</td>
+          <td>{{billing.status}}</td>
+          <td>
+            <button class="btn btn-success mb-3" routerLink="/create-billing">+ Add New Billing</button>
+            <button class="btn btn-success mb-3" routerLink="/update-billing">+ Update Billing</button>
+            
+            <button (click)="deleteBilling(billing.id)" class="delete-btn">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

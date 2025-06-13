@@ -1,0 +1,49 @@
+/* src/app/admindash/admindash.component.css */
+.text-success {
+    color: green;
+    font-weight: bold;
+}
+
+.text-danger {
+    color: red;
+    font-weight: bold;
+}
+/* src/app/admindash/admindash.component.css */
+.completed-appointment {
+    background-color: #f0f0f0; /* Light gray background for completed appointments */
+    opacity: 0.7; /* Make the row slightly transparent */
+}
+
+/* Add these styles to your component's CSS */
+.blue-section {
+  background-color: #004a99;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.dashboard-stats {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.stat-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  flex: 1;
+}
+
+.stat-card h3 {
+  margin: 0;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 10px;
+}

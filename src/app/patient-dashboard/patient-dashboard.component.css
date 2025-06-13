@@ -1,0 +1,82 @@
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .patient-details, .appointment-details {
+    margin-bottom: 30px;
+  }
+  
+  h2, h3 {
+    color: #004a99;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+  }
+  
+  .table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+  }
+  /* Chatbot Modal Styles */
+#chatbotModal .modal-dialog {
+  max-width: 800px;
+  height: 80vh;
+}
+
+#chatbotModal .modal-content {
+  height: 100%;
+}
+
+#chatbotModal .modal-body {
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Chatbot Button Styles */
+.btn-info {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.btn-info:hover {
+  background-color: #138496;
+  border-color: #117a8b;
+}
+
+.fa-comment-medical {
+  margin-right: 5px;
+}

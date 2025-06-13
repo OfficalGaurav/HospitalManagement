@@ -8,14 +8,12 @@ import { AdminauthService } from './adminauth.service';
 export class AdminauthguardService implements CanActivate{
 
   constructor(private adminAuthService:AdminauthService,private router:Router) { }
-  canActivate(){
-      if(this.adminAuthService.isUserLoggedIn()){
-        return true;
-      }
-      else{
-        this.router.navigate(['adlogin'])
-        return false;
-      }
-
+  canActivate(): boolean {
+    if (this.adminAuthService.isUserLoggedIn()) {
+      return true;
+    } else {
+      this.router.navigate(['adlogin']);
+      return false;
+    }
   }
 }
